@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>برق یزدیان | فروشگاه تخصصی الکترونیک</title>
+    <title>برق یزدیان | دنیای الکترونیک</title>
     <style>
         /* ===== تنظیمات کلی ===== */
         :root {
@@ -88,7 +88,7 @@
 
         /* ===== هیرو ===== */
         .hero-section {
-            height: 40vh;
+            height: 35vh;
             background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
             display: flex;
             align-items: center;
@@ -187,7 +187,7 @@
         }
         .search-section input {
             width: 80%;
-            max-width: 500px;
+            max-width: 600px;
             padding: 12px 20px;
             border-radius: 30px;
             border: 2px solid #333;
@@ -199,6 +199,11 @@
         }
         .search-section input:focus { border-color: var(--primary-color); box-shadow: 0 0 15px rgba(0, 212, 255, 0.2); }
         .search-section input::placeholder { color: #777; }
+        .search-hint {
+            color: #888;
+            font-size: 0.85rem;
+            margin-top: 8px;
+        }
 
         /* ===== درباره ما ===== */
         .about-us {
@@ -215,16 +220,16 @@
         .about-us h2 { color: var(--primary-color); }
 
         /* ===== محصولات ===== */
-        .container { padding: 40px 20px; max-width: 1200px; margin: auto; }
+        .container { padding: 40px 20px; max-width: 1400px; margin: auto; }
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
             margin-top: 20px;
         }
         .product-card {
             background: var(--card-bg);
-            padding: 15px;
+            padding: 12px;
             border-radius: 15px;
             border: 1px solid #333;
             transition: 0.3s;
@@ -235,65 +240,85 @@
         }
         .product-card:hover {
             border-color: var(--primary-color);
-            transform: translateY(-8px);
+            transform: translateY(-5px);
             box-shadow: 0 10px 25px rgba(0, 212, 255, 0.15);
+        }
+        .product-card img {
+            width: 100%;
+            max-height: 120px;
+            object-fit: contain;
+            border-radius: 8px;
+            background: #0a0a0a;
+            padding: 5px;
+            margin-bottom: 8px;
         }
         .product-card svg {
             width: 100%;
-            max-height: 150px;
+            max-height: 120px;
             height: auto;
             border-radius: 8px;
             background: #0a0a0a;
             padding: 5px;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
-        .product-card h3 { font-size: 1.1rem; margin: 5px 0; color: #fff; }
+        .product-card h3 {
+            font-size: 1rem;
+            margin: 4px 0;
+            color: #fff;
+            font-weight: 600;
+        }
+        .product-card .type {
+            font-size: 0.75rem;
+            color: #aaa;
+            margin-bottom: 3px;
+        }
         .product-card .stock-info {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: #aaa;
             margin: 2px 0;
         }
         .product-card .stock-info span { color: var(--primary-color); font-weight: bold; }
         .product-card .stock-badge {
-            font-size: 0.85rem;
-            padding: 3px 12px;
+            font-size: 0.75rem;
+            padding: 2px 10px;
             border-radius: 20px;
-            margin: 5px 0;
+            margin: 4px 0;
         }
         .product-card .stock-badge.available { background: var(--success); color: #fff; }
         .product-card .stock-badge.unavailable { background: #8b1e1e; color: #fff; }
         .product-card .price {
             color: var(--primary-color);
             font-weight: bold;
-            margin: 5px 0;
+            margin: 4px 0;
+            font-size: 0.9rem;
         }
         .product-card .qty-selector {
             display: flex;
             align-items: center;
-            gap: 10px;
-            margin: 8px 0;
+            gap: 8px;
+            margin: 6px 0;
         }
         .product-card .qty-selector input {
-            width: 60px;
-            padding: 5px;
+            width: 50px;
+            padding: 4px;
             border-radius: 8px;
             border: 1px solid #333;
             background: #0a0a0a;
             color: #fff;
             text-align: center;
-            font-size: 1rem;
+            font-size: 0.9rem;
         }
         .product-card .add-to-cart {
             background: var(--gold);
             color: #000;
             border: none;
-            padding: 6px 20px;
+            padding: 5px 16px;
             border-radius: 30px;
             font-weight: bold;
             cursor: pointer;
             transition: 0.2s;
-            margin-top: 5px;
-            font-size: 0.9rem;
+            margin-top: 4px;
+            font-size: 0.8rem;
         }
         .product-card .add-to-cart:hover {
             transform: scale(1.05);
@@ -322,21 +347,22 @@
             border-radius: 8px;
             margin-bottom: 5px;
             border: 1px solid #333;
+            font-size: 0.9rem;
         }
         .cart-item .remove-btn {
             background: #8b1e1e;
             color: #fff;
             border: none;
             border-radius: 50%;
-            width: 24px;
-            height: 24px;
+            width: 22px;
+            height: 22px;
             cursor: pointer;
-            font-size: 0.8rem;
-            margin-right: 10px;
+            font-size: 0.7rem;
+            margin-right: 8px;
         }
         .cart-item .remove-btn:hover { background: #cc3333; }
         .cart-total {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-weight: bold;
             color: var(--primary-color);
             margin: 15px 0;
@@ -412,6 +438,7 @@
             width: 100%;
             border-collapse: collapse;
             direction: rtl;
+            font-size: 0.9rem;
         }
         .payment-message .invoice-box th, .payment-message .invoice-box td {
             padding: 6px 12px;
@@ -449,6 +476,7 @@
             margin: 15px 0;
             color: #ffdd99;
             text-align: right;
+            font-size: 0.9rem;
         }
         .payment-message .shipping-condition strong {
             color: var(--gold);
@@ -461,6 +489,7 @@
             margin: 15px 0;
             color: #aaddff;
             text-align: right;
+            font-size: 0.9rem;
         }
         .payment-message .guide-text a {
             color: var(--gold);
@@ -508,29 +537,28 @@
             border-bottom: 2px solid var(--primary-color);
             padding-bottom: 10px;
             margin-bottom: 15px;
-            font-size: 1.5rem;
+            font-size: 1.4rem;
         }
         .invoice-overlay .invoice-card table {
             width: 100%;
             border-collapse: collapse;
             margin: 12px 0;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
         .invoice-overlay .invoice-card th,
         .invoice-overlay .invoice-card td {
-            padding: 6px 8px;
+            padding: 5px 6px;
             border-bottom: 1px solid #333;
             text-align: center;
         }
         .invoice-overlay .invoice-card th {
             color: var(--primary-color);
             font-weight: bold;
-            font-size: 0.85rem;
         }
         .invoice-overlay .invoice-card .total-row td {
             font-weight: bold;
             color: var(--gold);
-            font-size: 1.05rem;
+            font-size: 1rem;
             border-top: 2px solid var(--gold);
         }
         .invoice-overlay .invoice-card .condition-box {
@@ -540,7 +568,7 @@
             padding: 12px;
             margin: 12px 0;
             color: #ffdd99;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             text-align: right;
         }
         .invoice-overlay .invoice-card .condition-box strong {
@@ -553,7 +581,7 @@
             padding: 12px;
             margin: 12px 0;
             color: #aaddff;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             text-align: right;
         }
         .invoice-overlay .invoice-card .address-box strong {
@@ -566,7 +594,7 @@
             padding: 12px;
             margin: 12px 0;
             color: #aaddff;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             text-align: right;
         }
         .invoice-overlay .invoice-card .guide-box a {
@@ -605,13 +633,6 @@
             user-select: text;
             cursor: text;
         }
-        .invoice-overlay .invoice-card .copy-note {
-            text-align: center;
-            font-size: 0.8rem;
-            color: #888;
-            margin: 5px 0;
-        }
-        /* تاکید بر عکس فاکتور و واریزی */
         .invoice-overlay .invoice-card .emphasis {
             background: #1a3a1a;
             border: 2px solid #44ff44;
@@ -621,6 +642,7 @@
             color: #88ff88;
             text-align: center;
             font-weight: bold;
+            font-size: 0.95rem;
         }
 
         /* ===== بخش امنیت ===== */
@@ -677,8 +699,8 @@
             padding: 20px 30px;
             border-radius: 15px;
             border: 1px solid #333;
-            min-width: 180px;
-            max-width: 280px;
+            min-width: 160px;
+            max-width: 260px;
         }
         .shipping .method span { font-size: 2rem; display: block; }
         .shipping .condition-box {
@@ -692,6 +714,7 @@
             margin-right: auto;
             color: #ffdd99;
             text-align: right;
+            font-size: 0.95rem;
         }
         .shipping .condition-box strong {
             color: var(--gold);
@@ -790,7 +813,7 @@
             border: 1px dashed #555;
         }
 
-        /* ===== کلاس کمکی برای کپی کردن ===== */
+        /* ===== کلاس کمکی ===== */
         .copyable {
             user-select: text !important;
             cursor: text !important;
@@ -815,10 +838,11 @@
             .copyright-banner { font-size: 0.8rem; padding: 10px; }
             .copyright-banner .close-btn { position: static; transform: none; }
             .invoice-overlay .invoice-card { padding: 15px; }
-            .invoice-overlay .invoice-card table { font-size: 0.8rem; }
+            .invoice-overlay .invoice-card table { font-size: 0.75rem; }
             .invoice-overlay .invoice-card th, 
-            .invoice-overlay .invoice-card td { padding: 4px 6px; }
+            .invoice-overlay .invoice-card td { padding: 4px 5px; }
             .contact-panel { width: 90%; left: 5%; bottom: 80px; }
+            .products-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
         }
     </style>
 </head>
@@ -834,7 +858,7 @@
     <header class="header">
         <div class="shop-name">
             ⚡ برق یزدیان
-            <small>فروشگاه تخصصی الکترونیک</small>
+            <small>دنیای الکترونیک</small>
         </div>
         <div style="display: flex; align-items: center; gap: 15px; flex-wrap: wrap;">
             <span class="shop-id">🏷️ شماره فروشگاه: ۳۷۱۸۹۴۵۰</span>
@@ -871,7 +895,7 @@
                     <rect x="100" y="130" width="200" height="30" fill="#00d4ff" rx="5" opacity="0.9"/>
                     <text x="200" y="151" font-family="Tahoma, sans-serif" font-size="16" fill="#000" font-weight="bold" text-anchor="middle">برق یزدیان</text>
                     <text x="200" y="225" font-size="20" fill="#ffea00" text-anchor="middle">⚡</text>
-                    <text x="200" y="245" font-size="10" fill="#aaa" text-anchor="middle">فروشگاه تخصصی الکترونیک</text>
+                    <text x="200" y="245" font-size="10" fill="#aaa" text-anchor="middle">دنیای الکترونیک</text>
                 </svg>
             </div>
             <div class="info-box">
@@ -887,7 +911,7 @@
                 <p><strong>آیدی ایتا:</strong> <span class="copyable">yazdian2@</span>
                     <button class="copy-btn" onclick="copyText('yazdian2@')">کپی</button>
                 </p>
-                <p style="color: var(--primary-color);">⭐ ارائه انواع قطعات الکترونیکی، ترانزیستور، آی‌سی، مقاومت، خازن و...</p>
+                <p style="color: var(--primary-color);">⭐ ارائه انواع قطعات الکترونیکی، ماژول‌ها، آردوینو، باتری، موتور، سنسور و...</p>
             </div>
         </div>
     </section>
@@ -895,6 +919,7 @@
     <!-- ===== جستجو ===== -->
     <section class="search-section">
         <input type="text" id="searchInput" placeholder="جستجوی قطعه (مثلاً BC547، درباره ما، ...)" onkeyup="searchProducts()">
+        <div class="search-hint" id="searchHint">🔍 بیش از ۱۵۰ قطعه مختلف در فروشگاه موجود است.</div>
         <div id="aboutUs" class="about-us">
             <h2>📖 درباره ما</h2>
             <p>فروشگاه <strong>برق یزدیان</strong> با بیش از ۱۰ سال سابقه در زمینه توزیع قطعات الکترونیکی و تجهیزات برق صنعتی، همواره سعی در ارائه محصولات با کیفیت و قیمت مناسب داشته است. ما با بهره‌گیری از کارشناسان مجرب، مشاوره فنی رایگان به مشتریان ارائه می‌دهیم.</p>
@@ -905,7 +930,7 @@
     <!-- ===== محصولات ===== -->
     <div class="container">
         <h2 style="text-align: center; margin-bottom: 10px;">🛒 قطعات موجود در انبار</h2>
-        <p style="text-align: center; color: #aaa;">تعداد مورد نظر را انتخاب کنید و به سبد خرید اضافه کنید</p>
+        <p style="text-align: center; color: #aaa; font-size: 0.9rem;">تعداد مورد نظر را انتخاب کنید و به سبد خرید اضافه کنید</p>
         <div class="products-grid" id="productsGrid"></div>
     </div>
 
@@ -1065,74 +1090,218 @@
             setTimeout(() => toast.remove(), 2500);
         }
 
-        // ===== توابع SVG =====
-        function getTO92(label, color = '#00d4ff') {
-            return `<svg viewBox="0 0 120 140" xmlns="http://www.w3.org/2000/svg"><rect x="25" y="20" width="70" height="80" rx="12" fill="#1a1a1a" stroke="#555" stroke-width="2"/><rect x="35" y="100" width="10" height="25" rx="2" fill="#999"/><rect x="55" y="100" width="10" height="25" rx="2" fill="#999"/><rect x="75" y="100" width="10" height="25" rx="2" fill="#999"/><text x="60" y="65" font-family="monospace" font-size="18" fill="${color}" font-weight="bold" text-anchor="middle">${label}</text><text x="60" y="85" font-family="monospace" font-size="10" fill="#888" text-anchor="middle">TO-92</text><circle cx="20" cy="30" r="3" fill="#ff5555"/><circle cx="20" cy="60" r="3" fill="#ff5555"/><circle cx="20" cy="90" r="3" fill="#ff5555"/></svg>`;
-        }
-        function getDIP8(label, color = '#00d4ff') {
-            return `<svg viewBox="0 0 120 140" xmlns="http://www.w3.org/2000/svg"><rect x="25" y="30" width="70" height="70" rx="3" fill="#151515" stroke="#555" stroke-width="2"/><circle cx="35" cy="40" r="6" fill="#151515" stroke="#555" stroke-width="2"/><rect x="15" y="45" width="8" height="20" fill="#999" rx="1"/><rect x="15" y="70" width="8" height="20" fill="#999" rx="1"/><rect x="97" y="45" width="8" height="20" fill="#999" rx="1"/><rect x="97" y="70" width="8" height="20" fill="#999" rx="1"/><text x="60" y="70" font-family="monospace" font-size="18" fill="${color}" font-weight="bold" text-anchor="middle">${label}</text><text x="60" y="90" font-family="monospace" font-size="10" fill="#888" text-anchor="middle">DIP-8</text></svg>`;
-        }
-        function getDIP16(label, color = '#00d4ff') {
-            return `<svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg"><rect x="30" y="30" width="100" height="80" rx="3" fill="#151515" stroke="#555" stroke-width="2"/><circle cx="45" cy="40" r="6" fill="#151515" stroke="#555" stroke-width="2"/>${[45,60,75,90,105,120,135,150].map(y => `<rect x="20" y="${y}" width="8" height="18" fill="#999" rx="1"/>`).join('')}${[45,60,75,90,105,120,135,150].map(y => `<rect x="132" y="${y}" width="8" height="18" fill="#999" rx="1"/>`).join('')}<text x="80" y="75" font-family="monospace" font-size="16" fill="${color}" font-weight="bold" text-anchor="middle">${label}</text><text x="80" y="95" font-family="monospace" font-size="10" fill="#888" text-anchor="middle">DIP-16</text></svg>`;
-        }
-        function getDIP28(label, color = '#00d4ff') {
-            return `<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><rect x="35" y="30" width="130" height="110" rx="3" fill="#151515" stroke="#555" stroke-width="2"/><circle cx="55" cy="45" r="7" fill="#151515" stroke="#555" stroke-width="2"/>${[45,62,79,96,113,130,147,164,181].map(y => `<rect x="25" y="${y}" width="8" height="18" fill="#999" rx="1"/>`).join('')}${[45,62,79,96,113,130,147,164,181].map(y => `<rect x="167" y="${y}" width="8" height="18" fill="#999" rx="1"/>`).join('')}<text x="100" y="95" font-family="monospace" font-size="18" fill="${color}" font-weight="bold" text-anchor="middle">${label}</text><text x="100" y="120" font-family="monospace" font-size="10" fill="#888" text-anchor="middle">DIP-28</text></svg>`;
-        }
-        function getTO220(label, color = '#00d4ff') {
-            return `<svg viewBox="0 0 120 140" xmlns="http://www.w3.org/2000/svg"><rect x="30" y="20" width="60" height="70" rx="5" fill="#1a1a1a" stroke="#555" stroke-width="2"/><rect x="35" y="90" width="12" height="30" rx="2" fill="#999"/><rect x="55" y="90" width="12" height="30" rx="2" fill="#999"/><rect x="75" y="90" width="12" height="30" rx="2" fill="#999"/><rect x="10" y="40" width="20" height="40" fill="#888" rx="3"/><text x="60" y="65" font-family="monospace" font-size="16" fill="${color}" font-weight="bold" text-anchor="middle">${label}</text><text x="60" y="85" font-family="monospace" font-size="10" fill="#888" text-anchor="middle">TO-220</text></svg>`;
+        // ============================================================
+        // تولید عکس placeholder با نام قطعه
+        // ============================================================
+        function getImageUrl(name) {
+            return `https://placehold.co/300x200/1a1a1a/00d4ff?text=${encodeURIComponent(name)}`;
         }
 
         // ============================================================
-        // اطلاعات محصولات با موجودی اولیه ۱۵۹ عدد
+        // اطلاعات محصولات (بیش از ۱۵۰ قطعه)
         // ============================================================
-        const productData = [
-            { "name": "BC547", "type": "ترانزیستور NPN", "stock": true, "count": 159, "price": 12000, "priceText": "۱۲,۰۰۰ تومان", "svg": "TO92" },
-            { "name": "BC557", "type": "ترانزیستور PNP", "stock": true, "count": 159, "price": 13500, "priceText": "۱۳,۵۰۰ تومان", "svg": "TO92" },
-            { "name": "LM317", "type": "تنظیم‌کننده ولتاژ", "stock": true, "count": 159, "price": 25000, "priceText": "۲۵,۰۰۰ تومان", "svg": "TO220" },
-            { "name": "CD4017", "type": "آی‌سی شمارنده", "stock": false, "count": 0, "price": 18000, "priceText": "۱۸,۰۰۰ تومان", "svg": "DIP16" },
-            { "name": "CD4047", "type": "آی‌سی مولتی‌ویبراتور", "stock": true, "count": 159, "price": 22000, "priceText": "۲۲,۰۰۰ تومان", "svg": "DIP16" },
-            { "name": "NE555", "type": "تایمر معروف", "stock": true, "count": 159, "price": 8500, "priceText": "۸,۵۰۰ تومان", "svg": "DIP8" },
-            { "name": "LM358", "type": "اپ‌امپ دوگانه", "stock": true, "count": 159, "price": 9000, "priceText": "۹,۰۰۰ تومان", "svg": "DIP8" },
-            { "name": "IRFZ44N", "type": "موسفت قدرت", "stock": false, "count": 0, "price": 35000, "priceText": "۳۵,۰۰۰ تومان", "svg": "TO220" },
-            { "name": "ATMEGA328", "type": "میکروکنترلر", "stock": true, "count": 159, "price": 120000, "priceText": "۱۲۰,۰۰۰ تومان", "svg": "DIP28" }
+        const defaultProducts = [
+            // === ترانزیستورها ===
+            { name: "BC547", type: "ترانزیستور NPN", count: 300, price: 12000, priceText: "۱۲,۰۰۰ تومان" },
+            { name: "BC557", type: "ترانزیستور PNP", count: 280, price: 13500, priceText: "۱۳,۵۰۰ تومان" },
+            { name: "TIP3055", type: "ترانزیستور قدرت NPN", count: 120, price: 45000, priceText: "۴۵,۰۰۰ تومان" },
+            { name: "TIP2955", type: "ترانزیستور قدرت PNP", count: 100, price: 48000, priceText: "۴۸,۰۰۰ تومان" },
+            { name: "2N2222", type: "ترانزیستور NPN", count: 350, price: 8000, priceText: "۸,۰۰۰ تومان" },
+            { name: "2N3904", type: "ترانزیستور NPN", count: 400, price: 7000, priceText: "۷,۰۰۰ تومان" },
+            { name: "2N3906", type: "ترانزیستور PNP", count: 380, price: 7500, priceText: "۷,۵۰۰ تومان" },
+            { name: "IRFZ44N", type: "موسفت قدرت", count: 150, price: 35000, priceText: "۳۵,۰۰۰ تومان" },
+            { name: "IRF540", type: "موسفت قدرت", count: 130, price: 40000, priceText: "۴۰,۰۰۰ تومان" },
+            { name: "IRF3205", type: "موسفت قدرت", count: 100, price: 55000, priceText: "۵۵,۰۰۰ تومان" },
+            // === آی‌سی‌ها ===
+            { name: "LM317", type: "تنظیم‌کننده ولتاژ", count: 200, price: 25000, priceText: "۲۵,۰۰۰ تومان" },
+            { name: "LM358", type: "اپ‌امپ دوگانه", count: 220, price: 9000, priceText: "۹,۰۰۰ تومان" },
+            { name: "LM324", type: "اپ‌امپ چهارگانه", count: 180, price: 12000, priceText: "۱۲,۰۰۰ تومان" },
+            { name: "NE555", type: "تایمر معروف", count: 300, price: 8500, priceText: "۸,۵۰۰ تومان" },
+            { name: "CD4017", type: "آی‌سی شمارنده", count: 160, price: 18000, priceText: "۱۸,۰۰۰ تومان" },
+            { name: "CD4047", type: "آی‌سی مولتی‌ویبراتور", count: 140, price: 22000, priceText: "۲۲,۰۰۰ تومان" },
+            { name: "ATMEGA328", type: "میکروکنترلر", count: 120, price: 120000, priceText: "۱۲۰,۰۰۰ تومان" },
+            { name: "ATtiny85", type: "میکروکنترلر", count: 100, price: 65000, priceText: "۶۵,۰۰۰ تومان" },
+            { name: "74HC595", type: "شیفت رجیستر", count: 200, price: 15000, priceText: "۱۵,۰۰۰ تومان" },
+            { name: "ULN2003", type: "درایور موتور", count: 180, price: 22000, priceText: "۲۲,۰۰۰ تومان" },
+            { name: "L293D", type: "درایور موتور", count: 150, price: 35000, priceText: "۳۵,۰۰۰ تومان" },
+            { name: "L298N", type: "درایور موتور", count: 100, price: 55000, priceText: "۵۵,۰۰۰ تومان" },
+            { name: "MAX7219", type: "درایور LED", count: 120, price: 45000, priceText: "۴۵,۰۰۰ تومان" },
+            { name: "DS1307", type: "ماژول زمان RTC", count: 130, price: 38000, priceText: "۳۸,۰۰۰ تومان" },
+            { name: "DS18B20", type: "سنسور دما", count: 200, price: 25000, priceText: "۲۵,۰۰۰ تومان" },
+            { name: "LM35", type: "سنسور دما", count: 250, price: 18000, priceText: "۱۸,۰۰۰ تومان" },
+            { name: "DHT11", type: "سنسور دما و رطوبت", count: 180, price: 28000, priceText: "۲۸,۰۰۰ تومان" },
+            { name: "DHT22", type: "سنسور دما و رطوبت", count: 100, price: 45000, priceText: "۴۵,۰۰۰ تومان" },
+            // === ماژول‌ها ===
+            { name: "HC-05", type: "ماژول بلوتوث", count: 120, price: 85000, priceText: "۸۵,۰۰۰ تومان" },
+            { name: "HC-06", type: "ماژول بلوتوث", count: 100, price: 75000, priceText: "۷۵,۰۰۰ تومان" },
+            { name: "ESP8266", type: "ماژول WiFi", count: 80, price: 120000, priceText: "۱۲۰,۰۰۰ تومان" },
+            { name: "ESP32", type: "ماژول WiFi+BLE", count: 60, price: 180000, priceText: "۱۸۰,۰۰۰ تومان" },
+            { name: "RC522", type: "ماژول RFID", count: 70, price: 65000, priceText: "۶۵,۰۰۰ تومان" },
+            { name: "NEO-6M", type: "ماژول GPS", count: 50, price: 180000, priceText: "۱۸۰,۰۰۰ تومان" },
+            { name: "HC-SR04", type: "ماژول اولتراسونیک", count: 100, price: 45000, priceText: "۴۵,۰۰۰ تومان" },
+            { name: "HC-SR501", type: "ماژول PIR (حرکت)", count: 90, price: 55000, priceText: "۵۵,۰۰۰ تومان" },
+            { name: "MAX30100", type: "ماژول ضربان قلب", count: 60, price: 95000, priceText: "۹۵,۰۰۰ تومان" },
+            { name: "MAX30102", type: "ماژول ضربان قلب", count: 50, price: 110000, priceText: "۱۱۰,۰۰۰ تومان" },
+            { name: "ADXL345", type: "ماژول شتاب‌سنج", count: 70, price: 75000, priceText: "۷۵,۰۰۰ تومان" },
+            { name: "MPU6050", type: "ماژول ژیروسکوپ", count: 80, price: 85000, priceText: "۸۵,۰۰۰ تومان" },
+            { name: "HX711", type: "ماژول وزنه‌سنج", count: 60, price: 68000, priceText: "۶۸,۰۰۰ تومان" },
+            { name: "TTP223", type: "ماژول تاچ", count: 150, price: 15000, priceText: "۱۵,۰۰۰ تومان" },
+            { name: "KY-018", type: "ماژول فوتو رزیستور", count: 100, price: 12000, priceText: "۱۲,۰۰۰ تومان" },
+            { name: "KY-019", type: "ماژول رله 5V", count: 120, price: 25000, priceText: "۲۵,۰۰۰ تومان" },
+            { name: "KY-020", type: "ماژول سوئیچ ارتعاش", count: 90, price: 18000, priceText: "۱۸,۰۰۰ تومان" },
+            { name: "KY-021", type: "ماژول سوئیچ مغناطیسی", count: 80, price: 20000, priceText: "۲۰,۰۰۰ تومان" },
+            { name: "KY-022", type: "ماژول گیرنده IR", count: 100, price: 15000, priceText: "۱۵,۰۰۰ تومان" },
+            { name: "KY-023", type: "ماژول جوی استیک", count: 70, price: 35000, priceText: "۳۵,۰۰۰ تومان" },
+            { name: "KY-024", type: "ماژول اثر هال", count: 80, price: 22000, priceText: "۲۲,۰۰۰ تومان" },
+            { name: "KY-025", type: "ماژول رید سوئیچ", count: 90, price: 18000, priceText: "۱۸,۰۰۰ تومان" },
+            // === بردهای آردوینو ===
+            { name: "Arduino Uno", type: "برد آردوینو R3", count: 40, price: 280000, priceText: "۲۸۰,۰۰۰ تومان" },
+            { name: "Arduino Nano", type: "برد آردوینو Nano", count: 55, price: 210000, priceText: "۲۱۰,۰۰۰ تومان" },
+            { name: "Arduino Mega 2560", type: "برد آردوینو Mega", count: 25, price: 450000, priceText: "۴۵۰,۰۰۰ تومان" },
+            { name: "Arduino Leonardo", type: "برد آردوینو Leonardo", count: 30, price: 320000, priceText: "۳۲۰,۰۰۰ تومان" },
+            { name: "Arduino Micro", type: "برد آردوینو Micro", count: 35, price: 250000, priceText: "۲۵۰,۰۰۰ تومان" },
+            { name: "ESP8266 NodeMCU", type: "برد ESP8266", count: 50, price: 160000, priceText: "۱۶۰,۰۰۰ تومان" },
+            { name: "ESP32 DevKit", type: "برد ESP32", count: 40, price: 220000, priceText: "۲۲۰,۰۰۰ تومان" },
+            // === باتری‌ها ===
+            { name: "باتری 18650 2000mAh", type: "لیتیومی 3.7V", count: 200, price: 55000, priceText: "۵۵,۰۰۰ تومان" },
+            { name: "باتری 18650 2500mAh", type: "لیتیومی 3.7V", count: 180, price: 65000, priceText: "۶۵,۰۰۰ تومان" },
+            { name: "باتری 18650 3000mAh", type: "لیتیومی 3.7V", count: 150, price: 75000, priceText: "۷۵,۰۰۰ تومان" },
+            { name: "باتری 18650 3400mAh", type: "لیتیومی 3.7V", count: 100, price: 85000, priceText: "۸۵,۰۰۰ تومان" },
+            { name: "باتری لیتیوم پلیمر 500mAh", type: "3.7V", count: 120, price: 35000, priceText: "۳۵,۰۰۰ تومان" },
+            { name: "باتری لیتیوم پلیمر 1000mAh", type: "3.7V", count: 100, price: 45000, priceText: "۴۵,۰۰۰ تومان" },
+            { name: "باتری لیتیوم پلیمر 2000mAh", type: "3.7V", count: 80, price: 65000, priceText: "۶۵,۰۰۰ تومان" },
+            { name: "باتری لیتیوم پلیمر 4000mAh", type: "3.7V", count: 60, price: 95000, priceText: "۹۵,۰۰۰ تومان" },
+            { name: "باتری 9V", type: "باتری قلمی", count: 150, price: 20000, priceText: "۲۰,۰۰۰ تومان" },
+            { name: "باتری AA", type: "باتری قلمی", count: 200, price: 8000, priceText: "۸,۰۰۰ تومان" },
+            { name: "باتری AAA", type: "باتری قلمی", count: 200, price: 7000, priceText: "۷,۰۰۰ تومان" },
+            // === موتورها و آرمیچرها ===
+            { name: "موتور DC 3V", type: "آرمیچر ساده", count: 120, price: 18000, priceText: "۱۸,۰۰۰ تومان" },
+            { name: "موتور DC 6V", type: "آرمیچر ساده", count: 100, price: 22000, priceText: "۲۲,۰۰۰ تومان" },
+            { name: "موتور DC 12V", type: "آرمیچر ساده", count: 80, price: 28000, priceText: "۲۸,۰۰۰ تومان" },
+            { name: "موتور گیربکس‌دار", type: "موتور DC با گیربکس", count: 60, price: 45000, priceText: "۴۵,۰۰۰ تومان" },
+            { name: "سروو موتور SG90", type: "سروو 9g", count: 100, price: 48000, priceText: "۴۸,۰۰۰ تومان" },
+            { name: "سروو موتور MG995", type: "سروو 13Kg", count: 70, price: 85000, priceText: "۸۵,۰۰۰ تومان" },
+            { name: "استپر موتور 28BYJ-48", type: "استپر 5V", count: 80, price: 55000, priceText: "۵۵,۰۰۰ تومان" },
+            { name: "استپر موتور NEMA17", type: "استپر 12V", count: 50, price: 120000, priceText: "۱۲۰,۰۰۰ تومان" },
+            // === ماژول‌های تایمر، ترموستات، تاچ، دما ===
+            { name: "ماژول تایمر NE555", type: "ماژول تایمر", count: 100, price: 25000, priceText: "۲۵,۰۰۰ تومان" },
+            { name: "ماژول ترموستات دیجیتال", type: "ترموستات", count: 60, price: 55000, priceText: "۵۵,۰۰۰ تومان" },
+            { name: "ماژول سنسور دما DS18B20", type: "سنسور دما", count: 120, price: 32000, priceText: "۳۲,۰۰۰ تومان" },
+            { name: "ماژول سنسور دما LM35", type: "سنسور دما", count: 130, price: 22000, priceText: "۲۲,۰۰۰ تومان" },
+            // === پتانسیومترها ===
+            { name: "پتانسیومتر 1K", type: "مقاومت متغیر", count: 150, price: 8000, priceText: "۸,۰۰۰ تومان" },
+            { name: "پتانسیومتر 5K", type: "مقاومت متغیر", count: 140, price: 8500, priceText: "۸,۵۰۰ تومان" },
+            { name: "پتانسیومتر 10K", type: "مقاومت متغیر", count: 200, price: 9000, priceText: "۹,۰۰۰ تومان" },
+            { name: "پتانسیومتر 50K", type: "مقاومت متغیر", count: 120, price: 10000, priceText: "۱۰,۰۰۰ تومان" },
+            { name: "پتانسیومتر 100K", type: "مقاومت متغیر", count: 150, price: 11000, priceText: "۱۱,۰۰۰ تومان" },
+            { name: "پتانسیومتر 1M", type: "مقاومت متغیر", count: 100, price: 12000, priceText: "۱۲,۰۰۰ تومان" },
+            // === LEDها ===
+            { name: "LED قرمز 5mm", type: "LED 5mm", count: 500, price: 1500, priceText: "۱,۵۰۰ تومان" },
+            { name: "LED سبز 5mm", type: "LED 5mm", count: 480, price: 1500, priceText: "۱,۵۰۰ تومان" },
+            { name: "LED آبی 5mm", type: "LED 5mm", count: 450, price: 1800, priceText: "۱,۸۰۰ تومان" },
+            { name: "LED زرد 5mm", type: "LED 5mm", count: 400, price: 1500, priceText: "۱,۵۰۰ تومان" },
+            { name: "LED سفید 5mm", type: "LED 5mm", count: 350, price: 2000, priceText: "۲,۰۰۰ تومان" },
+            { name: "LED RGB 5mm", type: "LED RGB", count: 200, price: 5000, priceText: "۵,۰۰۰ تومان" },
+            { name: "LED SMD 5050", type: "LED SMD", count: 300, price: 3000, priceText: "۳,۰۰۰ تومان" },
+            { name: "LED 3mm", type: "LED 3mm", count: 400, price: 1200, priceText: "۱,۲۰۰ تومان" },
+            // === دیودها ===
+            { name: "1N4007", type: "دیود یکسوساز", count: 300, price: 2000, priceText: "۲,۰۰۰ تومان" },
+            { name: "1N4148", type: "دیود سیگنال", count: 350, price: 1500, priceText: "۱,۵۰۰ تومان" },
+            { name: "دیود زنر 3.3V", type: "دیود زنر", count: 200, price: 2500, priceText: "۲,۵۰۰ تومان" },
+            { name: "دیود زنر 5.1V", type: "دیود زنر", count: 200, price: 2500, priceText: "۲,۵۰۰ تومان" },
+            { name: "دیود زنر 6.8V", type: "دیود زنر", count: 180, price: 2800, priceText: "۲,۸۰۰ تومان" },
+            { name: "دیود زنر 9.1V", type: "دیود زنر", count: 160, price: 3000, priceText: "۳,۰۰۰ تومان" },
+            { name: "دیود زنر 12V", type: "دیود زنر", count: 150, price: 3200, priceText: "۳,۲۰۰ تومان" },
+            { name: "1N5819", type: "دیود شاتکی", count: 200, price: 3500, priceText: "۳,۵۰۰ تومان" },
+            { name: "SS34", type: "دیود شاتکی", count: 180, price: 4000, priceText: "۴,۰۰۰ تومان" },
+            { name: "SS12", type: "دیود شاتکی", count: 160, price: 3800, priceText: "۳,۸۰۰ تومان" },
+            // === مقاومت‌ها ===
+            { name: "مقاومت 10Ω", type: "مقاومت 1/4W", count: 500, price: 500, priceText: "۵۰۰ تومان" },
+            { name: "مقاومت 100Ω", type: "مقاومت 1/4W", count: 500, price: 500, priceText: "۵۰۰ تومان" },
+            { name: "مقاومت 220Ω", type: "مقاومت 1/4W", count: 500, price: 500, priceText: "۵۰۰ تومان" },
+            { name: "مقاومت 330Ω", type: "مقاومت 1/4W", count: 500, price: 500, priceText: "۵۰۰ تومان" },
+            { name: "مقاومت 470Ω", type: "مقاومت 1/4W", count: 500, price: 500, priceText: "۵۰۰ تومان" },
+            { name: "مقاومت 1K", type: "مقاومت 1/4W", count: 600, price: 500, priceText: "۵۰۰ تومان" },
+            { name: "مقاومت 2.2K", type: "مقاومت 1/4W", count: 500, price: 500, priceText: "۵۰۰ تومان" },
+            { name: "مقاومت 4.7K", type: "مقاومت 1/4W", count: 500, price: 500, priceText: "۵۰۰ تومان" },
+            { name: "مقاومت 10K", type: "مقاومت 1/4W", count: 600, price: 500, priceText: "۵۰۰ تومان" },
+            { name: "مقاومت 22K", type: "مقاومت 1/4W", count: 500, price: 500, priceText: "۵۰۰ تومان" },
+            { name: "مقاومت 47K", type: "مقاومت 1/4W", count: 500, price: 500, priceText: "۵۰۰ تومان" },
+            { name: "مقاومت 100K", type: "مقاومت 1/4W", count: 500, price: 500, priceText: "۵۰۰ تومان" },
+            { name: "مقاومت 220K", type: "مقاومت 1/4W", count: 400, price: 500, priceText: "۵۰۰ تومان" },
+            { name: "مقاومت 470K", type: "مقاومت 1/4W", count: 400, price: 500, priceText: "۵۰۰ تومان" },
+            { name: "مقاومت 1M", type: "مقاومت 1/4W", count: 400, price: 500, priceText: "۵۰۰ تومان" },
+            { name: "مقاومت 10M", type: "مقاومت 1/4W", count: 300, price: 600, priceText: "۶۰۰ تومان" },
+            // === خازن‌ها ===
+            { name: "خازن 10pF", type: "خازن سرامیکی", count: 400, price: 800, priceText: "۸۰۰ تومان" },
+            { name: "خازن 22pF", type: "خازن سرامیکی", count: 400, price: 800, priceText: "۸۰۰ تومان" },
+            { name: "خازن 47pF", type: "خازن سرامیکی", count: 400, price: 800, priceText: "۸۰۰ تومان" },
+            { name: "خازن 100pF", type: "خازن سرامیکی", count: 400, price: 800, priceText: "۸۰۰ تومان" },
+            { name: "خازن 1nF", type: "خازن سرامیکی", count: 400, price: 800, priceText: "۸۰۰ تومان" },
+            { name: "خازن 10nF", type: "خازن سرامیکی", count: 400, price: 800, priceText: "۸۰۰ تومان" },
+            { name: "خازن 100nF", type: "خازن سرامیکی", count: 500, price: 1000, priceText: "۱,۰۰۰ تومان" },
+            { name: "خازن 1µF", type: "خازن الکترولیتی", count: 300, price: 1500, priceText: "۱,۵۰۰ تومان" },
+            { name: "خازن 10µF", type: "خازن الکترولیتی", count: 300, price: 2000, priceText: "۲,۰۰۰ تومان" },
+            { name: "خازن 22µF", type: "خازن الکترولیتی", count: 280, price: 2200, priceText: "۲,۲۰۰ تومان" },
+            { name: "خازن 47µF", type: "خازن الکترولیتی", count: 250, price: 2500, priceText: "۲,۵۰۰ تومان" },
+            { name: "خازن 100µF", type: "خازن الکترولیتی", count: 250, price: 3000, priceText: "۳,۰۰۰ تومان" },
+            { name: "خازن 220µF", type: "خازن الکترولیتی", count: 200, price: 3500, priceText: "۳,۵۰۰ تومان" },
+            { name: "خازن 470µF", type: "خازن الکترولیتی", count: 180, price: 4000, priceText: "۴,۰۰۰ تومان" },
+            { name: "خازن 1000µF", type: "خازن الکترولیتی", count: 150, price: 5000, priceText: "۵,۰۰۰ تومان" }
         ];
 
-        // ===== سبد خرید =====
+        // ============================================================
+        // بارگذاری محصولات از localStorage یا پیش‌فرض
+        // ============================================================
+        function loadProductData() {
+            const saved = localStorage.getItem('productData');
+            if (saved) {
+                try {
+                    const parsed = JSON.parse(saved);
+                    return parsed.map(p => ({
+                        ...defaultProducts.find(d => d.name === p.name) || {},
+                        ...p
+                    }));
+                } catch (e) {
+                    return JSON.parse(JSON.stringify(defaultProducts));
+                }
+            }
+            return JSON.parse(JSON.stringify(defaultProducts));
+        }
+
+        function saveProductData(products) {
+            localStorage.setItem('productData', JSON.stringify(products));
+        }
+
+        let productData = loadProductData();
         let cart = [];
 
-        // ===== رندر محصولات =====
+        // ============================================================
+        // رندر محصولات با عکس placeholder
+        // ============================================================
         function renderProducts(products) {
             const grid = document.getElementById('productsGrid');
             grid.innerHTML = '';
             products.forEach(p => {
-                let svgCode = '';
-                switch (p.svg) {
-                    case 'TO92': svgCode = getTO92(p.name); break;
-                    case 'DIP8': svgCode = getDIP8(p.name); break;
-                    case 'DIP16': svgCode = getDIP16(p.name); break;
-                    case 'DIP28': svgCode = getDIP28(p.name); break;
-                    case 'TO220': svgCode = getTO220(p.name); break;
-                    default: svgCode = getTO92(p.name);
-                }
                 const isAvailable = p.count > 0;
                 const card = document.createElement('div');
                 card.className = 'product-card';
                 card.innerHTML = `
-                    <div>${svgCode}</div>
+                    <img src="${getImageUrl(p.name)}" alt="${p.name}" loading="lazy">
                     <h3>${p.name}</h3>
-                    <p style="font-size:0.85rem; color:#aaa;">${p.type}</p>
+                    <div class="type">${p.type}</div>
                     <div class="price">${p.priceText}</div>
-                    <div class="stock-info">موجودی: <span id="stock-${p.name}">${p.count}</span> عدد</div>
+                    <div class="stock-info">موجودی: <span id="stock-${p.name.replace(/\s/g, '')}">${p.count}</span> عدد</div>
                     <span class="stock-badge ${isAvailable ? 'available' : 'unavailable'}">
                         ${isAvailable ? '✅ موجود' : '❌ ناموجود'}
                     </span>
                     ${isAvailable ? `
                         <div class="qty-selector">
                             <span>تعداد:</span>
-                            <input type="number" id="qty-${p.name}" value="1" min="1" max="${p.count}">
+                            <input type="number" id="qty-${p.name.replace(/\s/g, '')}" value="1" min="1" max="${p.count}">
                         </div>
                         <button class="add-to-cart" onclick="addToCart('${p.name}')">➕ افزودن به سبد</button>
-                    ` : '<p style="color:#888; font-size:0.8rem;">ناموجود</p>'}
+                    ` : '<p style="color:#888; font-size:0.75rem;">ناموجود</p>'}
                 `;
                 grid.appendChild(card);
             });
@@ -1141,7 +1310,8 @@
         // ===== به‌روزرسانی نمایش موجودی =====
         function updateStockDisplay() {
             productData.forEach(p => {
-                const span = document.getElementById(`stock-${p.name}`);
+                const id = p.name.replace(/\s/g, '');
+                const span = document.getElementById(`stock-${id}`);
                 if (span) span.textContent = p.count;
                 const card = span?.closest('.product-card');
                 if (card) {
@@ -1164,13 +1334,15 @@
                     }
                 }
             });
+            saveProductData(productData);
         }
 
         // ===== افزودن به سبد =====
         function addToCart(name) {
             const product = productData.find(p => p.name === name);
             if (!product || product.count <= 0) return;
-            const qtyInput = document.getElementById(`qty-${name}`);
+            const id = name.replace(/\s/g, '');
+            const qtyInput = document.getElementById(`qty-${id}`);
             let qty = parseInt(qtyInput.value) || 1;
             if (qty > product.count) qty = product.count;
             const existing = cart.find(item => item.name === name);
@@ -1278,10 +1450,10 @@
         }
 
         // ============================================================
-        // 🆕 نمایش فاکتور در صفحه (مرکز، مناسب برای عکس گرفتن)
+        // نمایش فاکتور + کاهش موجودی + ذخیره دائمی
         // ============================================================
         function showInvoiceInPage() {
-            // ۱. کاهش موجودی
+            // کاهش موجودی
             cart.forEach(item => {
                 const product = productData.find(p => p.name === item.name);
                 if (product) {
@@ -1289,9 +1461,9 @@
                     if (product.count < 0) product.count = 0;
                 }
             });
+            saveProductData(productData);
             updateStockDisplay();
 
-            // ۲. ساخت محتوای فاکتور
             let total = 0;
             let rows = '';
             cart.forEach(item => {
@@ -1366,7 +1538,7 @@
             document.body.style.overflow = 'hidden';
         }
 
-        // ===== بستن فاکتور =====
+        // ===== بستن فاکتور (موجودی قبلاً کم شده) =====
         function closeInvoice() {
             document.getElementById('invoiceOverlay').classList.remove('active');
             document.body.style.overflow = '';
@@ -1380,16 +1552,24 @@
             const input = document.getElementById('searchInput');
             const query = input.value.trim().toLowerCase();
             const aboutDiv = document.getElementById('aboutUs');
+            const hint = document.getElementById('searchHint');
+
             if (query.includes('درباره') || query.includes('ما') || query.includes('about')) {
                 aboutDiv.classList.add('show');
             } else {
                 aboutDiv.classList.remove('show');
             }
-            if (query === '') { renderProducts(productData); return; }
+
+            if (query === '') {
+                hint.textContent = '🔍 بیش از ۱۵۰ قطعه مختلف در فروشگاه موجود است.';
+                renderProducts(productData);
+                return;
+            }
             const filtered = productData.filter(p =>
                 p.name.toLowerCase().includes(query) ||
                 p.type.toLowerCase().includes(query)
             );
+            hint.textContent = `🔍 ${filtered.length} نتیجه پیدا شد.`;
             renderProducts(filtered);
         }
 
@@ -1408,7 +1588,6 @@
                 panel.classList.remove('show');
             }
         }
-        // بستن فاکتور با کلیک روی پس‌زمینه
         document.getElementById('invoiceOverlay').addEventListener('click', function(e) {
             if (e.target === this) {
                 closeInvoice();
@@ -1417,4 +1596,4 @@
     </script>
 
 </body>
-  </html>
+    </html>
